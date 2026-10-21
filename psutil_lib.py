@@ -82,8 +82,8 @@ def print_network_info():
         print(f"{nic}- {data._asdict()}")
 
     print("--- Адреса (IP/MAC) ---")
-    for nic, addrs in psutil.net_if_addrs().items():
-        print(f"{nic}- {[addr._asdict() for addr in addrs]}")
+    for nic, adders in psutil.net_if_addrs().items():
+        print(f"{nic}- {[addr._asdict() for addr in adders]}")
 
     print("--- Статистика (up/down, скорость, MTU) ---")
     for nic, stats in psutil.net_if_stats().items():
@@ -102,13 +102,13 @@ def print_battery_info():
     print("Подключено к сети-", battery.power_plugged)
 
     if battery.secsleft == psutil.POWER_TIME_UNKNOWN:
-        secsleft_human = "Неизвестно"
+        select_human = "Неизвестно"
     elif battery.secsleft == psutil.POWER_TIME_UNLIMITED:
-        secsleft_human = "Без ограничений"
+        select_human = "Без ограничений"
     else:
-        secsleft_human = f"{battery.secsleft // 60} мин"
+        select_human = f"{battery.secsleft // 60} мин"
 
-    print("Время до разряда-", secsleft_human)
+    print("Время до разряда-", select_human)
 
 
 def print_sensors_info():
@@ -228,14 +228,22 @@ def print_uptime():
     print("Человеко-читаемо-", human)
 
 
-def print_windows_services():
+def print_windows_services() -> None:
     """Выводит список служб Windows."""
     print("\n=== [13] СЛУЖБЫ WINDOWS ===")
     if not psutil.WINDOWS:
         print("Статус- Доступно только на Windows")
         return
+
     for s in psutil.win_service_iter():
-        print(s.as_dict())
+        try:
+            # Пытаемся получить полную инфу
+            print(s.as_dict())
+        except FileNotFoundError:
+            # Если Windows не знает описание службы, выводим хотя бы имя и статус
+            print(f"Служба: {s.name()} | Статус: {s.status()} (Нет данных описания)")
+        except Exception as e:
+            print(f"Ошибка при чтении службы: {e}")
 
 
 if __name__ == "__main__":
