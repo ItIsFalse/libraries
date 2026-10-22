@@ -3,3 +3,5 @@ rembg
 pillow
 onnxruntime
 pyautogui
+python-barcode
+python-barcode[images]
