@@ -1,3 +1,5 @@
 psutil
 rembg
 pillow
+onnxruntime
+pyautogui
