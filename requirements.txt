@@ -7,3 +7,4 @@ python-barcode
 python-barcode[images]
 requests
 faker
+countryinfo
