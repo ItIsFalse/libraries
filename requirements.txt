@@ -8,3 +8,7 @@ python-barcode[images]
 requests
 faker
 countryinfo
+prettytable
+tabulate
+qrcode[pil]
+stegano
