@@ -183,10 +183,6 @@
 
 ---
 
-### 14. [https://github.com/ItIsFalse/parsing_bots]
-
----
-
 ### 14. [argostranslate] Офлайн-переводчик
 
 **Файл:** `translator_lib/deep-translator_lib.py`
@@ -254,3 +250,9 @@
 - **Что показывает:** Температуру, нагрузку и другие данные с датчиков.
 - Для работы библиотеки необходимо скачать утилиту **LibreHardwareMonitor
   ** https://github.com/LibreHardwaRemonitor/LibreHardwareMonitor и запустить её в фоне.
+
+---
+
+### 14. [BOTS] https://github.com/ItIsFalse/parsing_bots
+
+---
