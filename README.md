@@ -187,8 +187,6 @@
 
 ---
 
----
-
 ### 14. [argostranslate] Офлайн-переводчик
 
 **Файл:** `translator_lib/deep-translator_lib.py`
