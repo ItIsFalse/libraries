@@ -12,3 +12,5 @@ prettytable
 tabulate
 qrcode[pil]
 stegano
+argostranslate
+#glin_profanity
